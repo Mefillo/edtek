@@ -1,0 +1,4 @@
+django == 2.2.4
+django-tastypie == 0.14.2
+requests == 2.22.0
+pandas == 0.25.1
