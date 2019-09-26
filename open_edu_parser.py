@@ -126,14 +126,14 @@ if __name__ == "__main__":
     csv_name = 'csv/'+str(datetime.today())[:10]+'.csv'
 
     #Parse list of courses
-    #parser(file_name = file_name)
+    parser(file_name = file_name)
 
     #get json data from file
     '''with open(file_name, 'r') as f:
         dict_of_data = json.loads(f.read())'''
 
     #Save to db
-    #db_saver(dict_of_data)
+    db_saver(dict_of_data)
     #csv_name = csv_name[:-4]+'test.csv'
     #Save to csv
     c = Course.objects.all().values()
@@ -148,6 +148,7 @@ if __name__ == "__main__":
     #Save to windows1251 csv
     cours = pd.read_csv(csv_name)
     print(csv_name)
+    #Replace blank images with logo
     print(cours['detail_image'].isnull().value_counts())
     cours['detail_image'] = cours['detail_image'].replace(np.nan, IMG_LINK, regex=True)
     cours['anons_image'] = cours['anons_image'].replace(np.nan, IMG_LINK, regex=True)
